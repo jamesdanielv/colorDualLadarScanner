@@ -1,3 +1,10 @@
+this is for hardware, firmware, and python or node.js code. so more is coming at some point in time.
+my goal is an interface that controls rs232 port to hardware device from linux, max, or windows using a gui interface.
+the gcode parsing is simple for now, it might be more complexe later on, so for example you can send distance for axis to turn or go up and down.
+
+this code takes work from sparkfun and adafruit. and from the creator of the i2c software license. this is one of the only code builds out there that has two i2c devices with unchangable addresses working together at the same time.
+
+
 this code has a planner as well as a gcode parser but it is simple at this point
 terminal send h will home all axis, or set them to zero if no home switch
 
