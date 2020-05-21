@@ -1,5 +1,3 @@
-//made with efforts from sparkfun and MIT as well as adafruit and other software. more information is to be added. 
-//do not remove any lines remarked. it is a requirement of this lisence.
 //designed by james villeneuve March 2020  
 //uses software library to address issues with single i2c address for ladar parts as we can have 2 channels for soft i2c
 //frustrated with optical scanners that wont work reliably all the time, this one will even work outside!
@@ -35,24 +33,40 @@ Serial.println("initializing both sensors");
   }
   
   Serial.println("Adafruit VL6180x test!");
+#if disable_scanner_for_troubleshooting != true
   if (sensor1.VL6180xInit() != 0){
     Serial.println("Failed to find sensor");
     while (1);
-  }
+    
 
+
+  }
+#else
+    Serial.print("sensor disabled from config.h");
+  
+#endif
   delay(100);
+#if disable_scanner_for_troubleshooting != true
 sensor1.VL6180xDefautSettings(); //Load default settings to get started.
+#endif
   delay(100);
   Serial.println("Adafruit VL6180x test!");
+#if disable_scanner_for_troubleshooting != true
   if (sensor2.VL6180xInit() != 0){
     Serial.println("Failed to find sensor");
     while (1);
+
   }
+#else
+    Serial.print("sensor disabled from config.h");
+#endif
   
+#if disable_scanner_for_troubleshooting != true
   Serial.println("Sensor found!");
 delay(100);
 sensor2.VL6180xDefautSettings(); //Load default settings to get started.
  delay(100);
+#endif
 init_lasers_and_photo_sensor();
 
 steppers_init();//we initalize outputs and pins
