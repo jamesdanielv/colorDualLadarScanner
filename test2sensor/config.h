@@ -2,6 +2,7 @@
 //designed by james villeneuve for motor postitioning system that uses little memory.
 //this version does not yet have a bresanham interpolation algorithim for interpolating moves, but it does have a planner
 //you can know exact position and go back to it every time.
+#define disable_scanner_for_troubleshooting true //if true this allows code to init without laser detection
 #define leftSensor_disable_pin A6 //both sensors share same address
 #define rightSensor_disable_pin A7 //we can initialize both at same time, but disable one at a time
 #define max_steps_per_second 82000 //this is used to change calc timings in moves per second in mm. this is based on current rates
